@@ -1,0 +1,245 @@
+// imports
+@import './general.scss';
+@import './mixins.scss';
+@import './variables.scss';
+@import './dropdown-icone.scss';
+
+
+// wrapper
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+// container
+.container {
+    max-width: 1460px;
+    margin: 0 auto;
+    padding: 0 30px;
+    position: relative;
+}
+
+// header
+
+.header {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 100;
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        font-family: $mainFont;
+        font-weight: 500;
+        color: $mainWhite;
+        line-height: 1.18;
+    }
+
+    &__logo {
+        padding-top: 40px;
+    }
+
+    &__menu {
+        padding-top: 54px;
+        display: flex;
+        gap: 74px;
+        align-items: center;
+
+        &-link {
+            &::after {
+                content: '';
+                height: 2px;
+                background: $mainGreen;
+                width: 0%;
+                display: block;
+                transition: all 200ms ease-in-out;
+            }
+
+            &:hover::after {
+                width: 100%;
+            }
+        }
+
+        &-list {
+            display: flex;
+            gap: 40px;
+        }
+
+        &-buttons {
+            display: flex;
+            gap: 5px;
+        }
+
+    }
+
+    .button__one {
+        @include buttonGroupOne(none, 16px, $mainGreen, 11px 20px);
+    }
+
+    .button__two {
+        @include buttonGroupOne($mainGreen, 16px, $mainGreen, 11px 20px);
+    }
+}
+
+//dropdown
+.drop__down-icone{
+    padding-top: 52px;
+    display: none;
+}
+
+// introduction section
+// text
+.introduction {
+    background: $mainBlack;
+    justify-content: space-between;
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        padding-top: 182px;
+
+    }
+
+    &__content {
+        flex: 0 0 calc(700px / 1460px * 100);
+
+        &-h1 {
+            color: $mainWhite;
+            font-weight: 600;
+            font-size: 68px;
+            line-height: 1.26;
+        }
+    }
+
+    &__img {
+        max-width: 700px;
+
+        >img {
+            width: 100%;
+        }
+    }
+
+}
+
+.text {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.7;
+    color: $secondGray;
+    font-family: $mainFont;
+}
+
+// filter
+.filter {
+    z-index: 23;
+    margin-top: 60px;
+    max-width: 890px;
+    min-width: 600px;
+    width: 100%;
+    height: 100px;
+    background: $mainWhite;
+    position: absolute;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 164px;
+
+    &__btn {
+        background: $secondGreen;
+        margin: 5px;
+        font-weight: 500;
+        font-size: 24px;
+        transition: transform 50ms ease-in-out;
+        transition: background 100ms ease-in-out;
+
+        >button {
+            color: $mainWhite;
+            height: 100%;
+            width: 100%;
+        }
+
+        &:active {
+            transform: scale(0.97);
+        }
+
+        &:hover {
+            background: $mainGreen;
+        }
+    }
+
+    &__section {
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        padding-left: 40px;
+        height: 100%;
+        flex-direction: column;
+        gap: 2px;
+
+        &-top {
+            display: flex;
+            gap: 2px;
+            cursor: pointer;
+        }
+    }
+
+    &__section+&__section {
+        border-left: 1px solid #E8E8E8;
+
+    }
+}
+
+.block__filter {
+    &-tittle {
+        color: #858585;
+        font-weight: 400;
+        font-size: 16px;
+    }
+
+    &-value {
+        color: #121B25;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 1.26;
+    }
+}
+
+// dicoration
+
+.arrow__element {
+    position: absolute;
+    right: 0;
+    top: 586px;
+    z-index: 1000;
+}
+
+// introduction__bottom
+
+.introduction__bottom {
+    padding: 300px 0 190px 0;
+
+
+    &-h2 {
+        color: $mainWhite;
+        font-weight: 600;
+        font-size: 48px;
+        line-height: 1.26;
+    }
+    &-icones{
+        padding-top: 50px;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+// Meadia
+@media (max-width: 1100px) {
+    .header__menu{
+        display: none;
+    }
+    .drop__down-icone{
+        display: block;
+    }
+}

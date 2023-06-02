@@ -1,0 +1,9 @@
+// MIXINS
+
+@mixin buttonGroupOne($bg, $fsize, $borderClr, $pd...) {
+    padding: $pd;
+    font-size: $fsize;
+    background: $bg;
+    color: #FFFFFF;
+    border: 1px solid $borderClr;
+}
